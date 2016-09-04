@@ -1,0 +1,4 @@
+# ResPluginDemo
+插件与宿主资源id冲突，通过修改插件apk中的resources.arcs和对应的res二进制资源文件从而解决这个冲突
+
+应用于插件化中宿主和插件通用一套assetsManager，好处自然是减少apk的体量。
