@@ -18,9 +18,9 @@ public class MyApplication extends Application {
         super.onCreate();
         try {
             InputStream inputStream = getResources().getAssets().open("plugin.apk");
-//            InputStream inputStream = getResources().getAssets().open("signed_plugins.apk");
+//            InputStream inputStream = getResources().getAssets().open("origin_plugin.apk");
             File apkFile = new File(getFilesDir(), "plugin.apk");//加载到应用内部空间
-//            File apkFile = new File(getFilesDir(), "signed_plugins.apk");//加载到应用内部空间
+//            File apkFile = new File(getFilesDir(), "origin_plugin.apk");//加载到应用内部空间
 
             OutputStream out = new FileOutputStream(apkFile);
             byte[] buf = new byte[1024];
@@ -37,7 +37,7 @@ public class MyApplication extends Application {
         String[] paths = new String[2];
 
         paths[1] = getPackageResourcePath();
-//        paths[0] = getFilesDir() + File.separator + "signed_plugins.apk";
+//        paths[0] = getFilesDir() + File.separator + "origin_plugin.apk";
         paths[0] = getFilesDir() + File.separator + "plugin.apk";
 
         //如何给context对象重新设置合并后的res对象呢?
