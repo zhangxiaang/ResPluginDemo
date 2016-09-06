@@ -1,9 +1,9 @@
 package aaron.boy.simpledynamicloaddemo;
 
+import android.app.Activity;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -16,7 +16,7 @@ import java.io.File;
 import dalvik.system.DexClassLoader;
 
 //需要明白的是  被调用的apk必须受某种规范的约束 否则几乎是不可能随意去加载任意一个apk的
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
     public static final String TAG = "MainActivity";
     private AssetManager mAssetManager;
     private Resources mResources;
@@ -54,8 +54,10 @@ public class MainActivity extends AppCompatActivity {
 //        TextView textView = (TextView) MainActivity.this.findViewById(R.id.show);
 //        int res = R.string.app_name;
 //        textView.setText(getResources().getString(res));
-        Toast.makeText(this, getResources().getString(R.string.conflit), Toast.LENGTH_LONG).show();
-        Log.e(TAG, getResources().getString(R.string.conflit) + ":0x" + Integer.toHexString(R.string.conflit));
+        Toast.makeText(this, getResources().getString(R.string.app_name), Toast.LENGTH_LONG).show();
+        Log.e(TAG, getResources().getString(R.string.app_name) + ":0x" + Integer.toHexString(R.string.app_name));
+//        Toast.makeText(MainActivity.this, getResources().getString(Integer.parseInt("7e060012", 16)), Toast.LENGTH_SHORT).show();
+
     }
 
     public void loadsJar(View view) {
@@ -130,6 +132,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void loadPlugin(View view) {
 //        Log.e(TAG, "Host:0x" + Integer.toHexString(getResources().getIdentifier("activity_main", "layout", getPackageName())));
-        Log.e(TAG, getResources().getString(R.string.conflit) + " hex:" + Integer.toHexString(R.string.conflit));
+        Log.e(TAG, getResources().getString(R.string.app_name) + " hex:" + Integer.toHexString(R.string.app_name));
+        Toast.makeText(MainActivity.this, getResources().getString(Integer.parseInt("7e060012", 16)),Toast.LENGTH_SHORT).show();
     }
 }

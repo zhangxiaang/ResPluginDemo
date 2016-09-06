@@ -17,10 +17,11 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         try {
-//            InputStream inputStream = getResources().getAssets().open("plugin.apk");
-            InputStream inputStream = getResources().getAssets().open("plugins.apk");
-//            File apkFile = new File(getFilesDir(), "plugin.apk");//加载到应用内部空间
-            File apkFile = new File(getFilesDir(), "plugins.apk");//加载到应用内部空间
+            InputStream inputStream = getResources().getAssets().open("plugin.apk");
+//            InputStream inputStream = getResources().getAssets().open("signed_plugins.apk");
+            File apkFile = new File(getFilesDir(), "plugin.apk");//加载到应用内部空间
+//            File apkFile = new File(getFilesDir(), "signed_plugins.apk");//加载到应用内部空间
+
             OutputStream out = new FileOutputStream(apkFile);
             byte[] buf = new byte[1024];
             int len;
@@ -36,8 +37,8 @@ public class MyApplication extends Application {
         String[] paths = new String[2];
 
         paths[1] = getPackageResourcePath();
-//        paths[0] = getFilesDir() + File.separator + "plugin.apk";
-        paths[0] = getFilesDir() + File.separator + "plugins.apk";
+//        paths[0] = getFilesDir() + File.separator + "signed_plugins.apk";
+        paths[0] = getFilesDir() + File.separator + "plugin.apk";
 
         //如何给context对象重新设置合并后的res对象呢?
         //还只是资源的合并

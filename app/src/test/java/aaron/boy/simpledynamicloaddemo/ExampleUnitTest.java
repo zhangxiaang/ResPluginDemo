@@ -10,6 +10,7 @@ import static org.junit.Assert.*;
 public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() throws Exception {
-        assertEquals(4, 2 + 2);
+        int res = Integer.parseInt("7e060021", 16);
+        System.out.println(String.valueOf(res));
     }
 }
